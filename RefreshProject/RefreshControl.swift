@@ -22,11 +22,13 @@ class RefreshControl: UIView {
         fatalError("init(coder:) has not been implemented")
     }
     
-    private let refreshControlWH:CGFloat = 45
+    private let refreshControlWH:CGFloat = 60
     
     private func setUpUI(){
-        frame.size = CGSize.init(width: refreshControlWH, height: refreshControlWH)
-        backgroundColor = UIColor.red
+        
+        let logo = RefreshJKlogoView.init(frame: self.bounds)
+        self.addSubview(logo)
+        
     }
     
     override func willMove(toSuperview newSuperview: UIView?) {
@@ -57,7 +59,7 @@ class RefreshControl: UIView {
     }
     
     /// 设置控件的初始位置
-
+    
     private func setLocation(superViewFrame: CGRect) {
         self.center = CGPoint(x: superViewFrame.width * 0.5, y: -self.frame.height * 0.5)
     }
@@ -65,7 +67,7 @@ class RefreshControl: UIView {
     
     /// 默认的centerY
     lazy var defaultCenterY: CGFloat = {
-        return -self.frame.height * 0.5
+        return -self.frame.height * 0.5 - 13
     }()
     
     private func dealContentOffsetYChanged() {

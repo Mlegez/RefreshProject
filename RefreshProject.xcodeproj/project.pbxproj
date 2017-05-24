@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		B66E98DD1ED5C2DD00DEA3D7 /* RefreshJKlogoView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B66E98DC1ED5C2DD00DEA3D7 /* RefreshJKlogoView.swift */; };
 		B688317C1EC9803700FAD1C7 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = B688317B1EC9803700FAD1C7 /* AppDelegate.swift */; };
 		B688317E1EC9803700FAD1C7 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B688317D1EC9803700FAD1C7 /* ViewController.swift */; };
 		B68831811EC9803700FAD1C7 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B688317F1EC9803700FAD1C7 /* Main.storyboard */; };
@@ -36,6 +37,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		B66E98DC1ED5C2DD00DEA3D7 /* RefreshJKlogoView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RefreshJKlogoView.swift; sourceTree = "<group>"; };
 		B68831781EC9803700FAD1C7 /* RefreshProject.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = RefreshProject.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		B688317B1EC9803700FAD1C7 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		B688317D1EC9803700FAD1C7 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -109,6 +111,7 @@
 				B68831871EC9803700FAD1C7 /* Info.plist */,
 				B68831A91EC9808400FAD1C7 /* RefreshTableViewController.swift */,
 				B68831AB1EC9814700FAD1C7 /* RefreshControl.swift */,
+				B66E98DC1ED5C2DD00DEA3D7 /* RefreshJKlogoView.swift */,
 			);
 			path = RefreshProject;
 			sourceTree = "<group>";
@@ -271,6 +274,7 @@
 				B68831AA1EC9808400FAD1C7 /* RefreshTableViewController.swift in Sources */,
 				B688317E1EC9803700FAD1C7 /* ViewController.swift in Sources */,
 				B688317C1EC9803700FAD1C7 /* AppDelegate.swift in Sources */,
+				B66E98DD1ED5C2DD00DEA3D7 /* RefreshJKlogoView.swift in Sources */,
 				B68831AC1EC9814700FAD1C7 /* RefreshControl.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -522,6 +526,7 @@
 				B68831A21EC9803800FAD1C7 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		B68831A31EC9803800FAD1C7 /* Build configuration list for PBXNativeTarget "RefreshProjectTests" */ = {
 			isa = XCConfigurationList;
@@ -530,6 +535,7 @@
 				B68831A51EC9803800FAD1C7 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		B68831A61EC9803800FAD1C7 /* Build configuration list for PBXNativeTarget "RefreshProjectUITests" */ = {
 			isa = XCConfigurationList;
@@ -538,6 +544,7 @@
 				B68831A81EC9803800FAD1C7 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
