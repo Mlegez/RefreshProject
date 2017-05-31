@@ -8,9 +8,47 @@
 
 import UIKit
 
+enum refreshStates:Int {
+    case nom = 0 , pull,refreshing
+}
+
 class RefreshControl: UIView {
     
     var superView = UIScrollView()
+    var refershlogo : RefreshJKlogoView?
+    
+    fileprivate var refreshstate = refreshStates.nom {
+        didSet {
+            switch refreshstate {
+            case .refreshing:
+                //  调整顶部距离
+                var inset = self.superView.contentInset
+                // 原有的顶部距离加上刷新空间高度
+                inset.top = inset.top + refreshControlWH
+                // 调整
+                DispatchQueue.main.async {
+                    
+                    UIView.animate(withDuration: 1.0, animations: {
+                        
+                        self.superView.contentInset = inset
+                        self.superView.setContentOffset(CGPoint.init(x: 0, y: -inset.top), animated: false)
+                        
+                    })
+                    
+                }
+                
+                
+            default:
+                break
+                
+            }
+        
+        
+        }
+     
+    
+    }
+    
     
     
     override init(frame:CGRect){
@@ -26,8 +64,9 @@ class RefreshControl: UIView {
     
     private func setUpUI(){
         
-        let logo = RefreshJKlogoView.init(frame: self.bounds)
-        self.addSubview(logo)
+        refershlogo = RefreshJKlogoView.init(frame: self.bounds)
+        print(self.bounds)
+        self.addSubview(refershlogo!)
         
     }
     
@@ -71,6 +110,11 @@ class RefreshControl: UIView {
     }()
     
     private func dealContentOffsetYChanged() {
+        
+        let scale = -(superView.contentOffset.y + superView.contentInset.top)/refreshControlWH
+        self.refershlogo?.contentOffsetScale = scale
+        
+        
         // 取出偏移的y值
         let contentOffsetY = superView.contentOffset.y;
         
@@ -85,5 +129,23 @@ class RefreshControl: UIView {
             // 否则继续设置为默认Y值
             self.center = CGPoint(x: self.center.x, y: defaultCenterY)
         }
+        
+        print(contentOffsetY,result,defaultCenterY,self.frame.size.height)
+        
+        // 正在拖拽
+        if self.superView.isDragging {
+            if result < defaultCenterY && refreshstate == .nom {
+               refreshstate = .pull
+            }else if result >= defaultCenterY && refreshstate == .pull{
+             refreshstate = .nom
+            }
+            
+        }else {
+            if refreshstate == .pull {
+                refreshstate = .refreshing
+            }
+        }
+        
+
     }
 }
